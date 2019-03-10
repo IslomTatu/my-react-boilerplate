@@ -1,28 +1,57 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
+import { Switch, Route } from 'react-router-dom'
 
-class App extends Component {
-  render() {
+// components
+
+const theme = createMuiTheme({
+  typography: {
+    useNextVariants: true,
+    // Use the system font instead of the default Roboto font.
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(',')
+   
+  },
+  palette: {
+    primary: {
+      light: '#757ce8',
+      main: '#3f50b5',
+      dark: '#002884',
+      contrastText: '#fff',
+    },
+    secondary: {
+      light: '#ff7961',
+      main: '#f44336',
+      dark: '#ba000d',
+      contrastText: '#000',
+    },
+  },
+});
+
+
+
+const App = () => {
+  
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <MuiThemeProvider theme={theme}>
+        <div>
+          Hello  
+        </div> 
+        </MuiThemeProvider>
       </div>
-    );
-  }
+
+    )
 }
 
 export default App;
